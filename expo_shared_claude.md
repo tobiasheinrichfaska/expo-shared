@@ -17,12 +17,16 @@ Reusable TypeScript libraries for Tobias's Expo apps, published to GitHub Packag
 
 ---
 
-## Publishing (GitHub Packages)
+## Publishing — FUTURE FEATURE (not yet enabled)
 
-- Scope `@tobiasheinrichfaska`; registry `https://npm.pkg.github.com` (see root `.npmrc` + each package's `publishConfig`).
-- **Auth is required even to _install_** (GitHub Packages limitation) — consumers and CI/EAS need an `.npmrc` with `NODE_AUTH_TOKEN` (a GitHub token: `read:packages` to install, `write:packages` to publish).
-- Publish a package: `cd packages/<pkg> && npm run build && npm publish` (with `NODE_AUTH_TOKEN` in env).
-- Versioning: semantic (`vMAJOR.MINOR.PATCH`) per workspace convention; tag releases.
+Packages are **not published to any registry yet.** Registry choice is deliberately deferred:
+
+- **Public npm (npmjs.org)** — likely future choice: tokenless installs *everywhere* (incl. EAS/CI); only publishing needs a token. Requires a free npm account owning the `@tobiasheinrichfaska` scope.
+- **GitHub Packages** — rejected for now: requires an auth token even to *install* public packages (every consumer + EAS/CI), defeating frictionless reuse.
+
+**For now:** consume locally via an npm `file:` dependency / workspace link. First consumer: TKD-Coach.
+
+When publishing is enabled: build each package, add `publishConfig`/registry, `npm publish`; semantic versioning (`vMAJOR.MINOR.PATCH`) + git tags per workspace convention.
 
 ---
 

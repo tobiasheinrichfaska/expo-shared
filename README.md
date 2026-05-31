@@ -12,18 +12,18 @@ A small package workspace. Each package is independent, framework-agnostic where
 
 ## Install (consumers)
 
-Packages live on **GitHub Packages**, which requires auth even to install. Add to the consuming project's `.npmrc`:
+> **Publishing is a future feature — packages are not on any registry yet.** Registry choice (public npm vs GitHub Packages) is deferred; see [`expo_shared_claude.md`](expo_shared_claude.md).
 
-```
-@tobiasheinrichfaska:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+For now, consume **locally** via an npm `file:` dependency (or workspace link):
+
+```jsonc
+// consuming app's package.json
+"dependencies": {
+  "@tobiasheinrichfaska/qr-sync": "file:../relative/path/to/expo-shared/packages/qr-sync"
+}
 ```
 
-…with `NODE_AUTH_TOKEN` set to a GitHub token that has `read:packages` (and `write:packages` to publish). CI / EAS builds need the same token as a secret.
-
-```bash
-npm install @tobiasheinrichfaska/qr-sync
-```
+The package ships built JS + types in `dist/` (run `npm run build` in the package first).
 
 ## Develop
 
