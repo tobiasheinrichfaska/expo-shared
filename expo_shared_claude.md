@@ -42,9 +42,15 @@ When publishing is enabled: build each package, add `publishConfig`/registry, `n
 | `packages/qr-sync/src/chunks.ts` | Chunked deflate/base64 encode + assemble (schema-agnostic) |
 | `packages/qr-sync/src/diff.ts` | `createSyncEngine`: exportSelected / detectChanges / applyChanges |
 | `packages/qr-sync/src/__tests__/` | Jest unit tests |
+| `packages/qr-sync/BRIEFING.md` | Handoff note for the next agent (testing-first) |
 | `packages/qr-sync/tsconfig.json` | Build config (emits `dist/` + `.d.ts`) |
 | `packages/qr-sync/jest.config.js` | ts-jest test config |
+| `manual_tests/` | Human-tester notes (libraries → validated by `npm test`; see README) |
 | `.gitignore` | Git ignore rules |
+
+## Manual Tests
+
+This is a library repo (no UI) — correctness is via automated `npm test`. See [`manual_tests/README.md`](manual_tests/README.md) for the build/test smoke checks and the pointer to the real integration check in TKD-Coach.
 
 ---
 
