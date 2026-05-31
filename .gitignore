@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.tsbuildinfo
+coverage/
+.env
+.env.local
+.vscode/
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+# Never commit a real npm auth token. .npmrc here only references ${NODE_AUTH_TOKEN}.
+.npmrc.local

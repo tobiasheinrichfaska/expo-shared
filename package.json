@@ -1,0 +1,15 @@
+{
+  "name": "expo-shared",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Reusable TypeScript libraries for Tobias Heinrich's Expo apps",
+  "license": "AGPL-3.0-or-later",
+  "author": "Tobias Heinrich <tobias.a.w.heinrich@gmail.com>",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present"
+  }
+}
