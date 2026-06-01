@@ -12,7 +12,7 @@ A small package workspace. Each package is independent, framework-agnostic where
 
 ## Install (consumers)
 
-> **Publishing is a future feature — packages are not on any registry yet.** Registry choice (public npm vs GitHub Packages) is deferred; see [`expo_shared_claude.md`](expo_shared_claude.md).
+> **Publishing is a future feature — packages are not on any registry yet.** Registry choice (public npm vs GitHub Packages) is deferred; see [`CLAUDE.md`](CLAUDE.md).
 
 For now, consume **locally** via an npm `file:` dependency (or workspace link):
 

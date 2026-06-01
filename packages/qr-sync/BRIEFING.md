@@ -6,7 +6,7 @@
 
 `@tobiasheinrichfaska/qr-sync` — a **pure-TypeScript, framework-agnostic** QR peer-to-peer data-sync engine. No React, no Expo, no native deps. Two devices sync offline by showing/scanning QR codes.
 
-Extracted from the TKD-Coach app (its first consumer). See repo root [`expo_shared_claude.md`](../../expo_shared_claude.md) for workspace/publishing context, and [`README.md`](README.md) for the public API.
+Extracted from the TKD-Coach app (its first consumer). See repo root [`CLAUDE.md`](../../CLAUDE.md) for workspace/publishing context, and [`README.md`](README.md) for the public API.
 
 ### Source map
 - `src/chunks.ts` — transport: `encodeToChunks(data, chunkSize?)` / `assembleFromChunks(packets)`. Serialize → `pako` deflate → custom base64 (RN has no `atob`/`btoa`) → split into `QRChunk` JSON strings. Schema-agnostic (generic over payload).
@@ -18,7 +18,7 @@ Extracted from the TKD-Coach app (its first consumer). See repo root [`expo_shar
 
 - Builds clean: `npm run build` → `dist/` (CommonJS + `.d.ts`).
 - **7 tests passing** (`npm test`): encode↔assemble round-trip (incl. multi-chunk, out-of-order, tiny payload), detectChanges new/changed/unchanged, applyChanges replace+append+no-op, exportSelected.
-- Consumed by TKD-Coach via a **local `file:` dependency** (no registry yet — publishing is a deliberately deferred FUTURE feature; see expo_shared_claude.md).
+- Consumed by TKD-Coach via a **local `file:` dependency** (no registry yet — publishing is a deliberately deferred FUTURE feature; see CLAUDE.md).
 
 ## Your task: expand the tests (pilot)
 
@@ -46,7 +46,7 @@ The existing 7 are a smoke test. Make the suite genuinely cover the engine's ris
 ## Conventions & gotchas
 
 - ts-jest, `testMatch: **/__tests__/**/*.test.ts`. Keep tests pure (no RN/Expo).
-- Semantic versioning + git tags per workspace convention (see root `general_stuff_claude.md`). Bump only when publishing is enabled.
+- Semantic versioning + git tags per workspace convention (see root `general stuff/CLAUDE.md`). Bump only when publishing is enabled.
 - **Don't** add React/Expo/native deps here — purity is the point (it's why it's trivially testable and reusable).
 - Consumer gotcha (document, don't "fix" here): RN/Metro consumers using the local `file:` link must keep `pako` resolvable in their own tree and add the package's real path to Metro `watchFolders` (TKD-Coach does both).
 
